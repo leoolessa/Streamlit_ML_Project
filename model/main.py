@@ -17,7 +17,7 @@ def create_model(data):
         
     #split the data
     X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.20, random_state=42)
+                X, y, test_size=0.30, random_state=42)
         
     #train the model
     model = LogisticRegression()
@@ -32,15 +32,25 @@ def create_model(data):
 
 
 
-    
-    
-    
+def get_clean_data():
+  data = pd.read_csv("data/raw_data.csv")
+  
+  data = data.drop(['Unnamed: 32', 'id'], axis=1)
+  
+  data['diagnosis'] = data['diagnosis'].map({ 'M': 1, 'B': 0 })
+  
+  return data
+
+
 def main():
-    data = pd.read_csv('data/data.csv')
+    data = get_clean_data()
     model, scaler = create_model(data)    
 
-  
-
+    with open('model/model.pkl', 'wb') as f:
+        pickle.dump(model, f)
+    
+    with open('model/scaler.pkl', 'wb') as f:
+        pickle.dump(model, f)
 
 
 
