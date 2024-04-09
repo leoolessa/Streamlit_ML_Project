@@ -1,11 +1,10 @@
 import pandas as pd 
-import seaborn as sns
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
+import pickle5 as pickle
 
 
 def create_model(data):
@@ -18,7 +17,7 @@ def create_model(data):
         
     #split the data
     X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.30, random_state=42)
+                X, y, test_size=0.20, random_state=42)
         
     #train the model
     model = LogisticRegression()
@@ -27,7 +26,7 @@ def create_model(data):
     #test the model
     y_pred = model.predict(X_test)
     print('Accuracy of the model: ', accuracy_score(y_test, y_pred))
-    print('Classification report: \n', classification_report(y_test,y_pred))
+    print('Classification report: \n', classification_report(y_test, y_pred))
     
     return model, scaler
 
