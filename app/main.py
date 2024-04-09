@@ -184,21 +184,5 @@ def main():
         add_predictions(input_data)    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__=='__main__':
     main()
