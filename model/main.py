@@ -50,7 +50,7 @@ def main():
         pickle.dump(model, f)
     
     with open('model/scaler.pkl', 'wb') as f:
-        pickle.dump(model, f)
+        pickle.dump(scaler, f)
 
 
 
